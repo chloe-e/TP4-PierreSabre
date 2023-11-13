@@ -14,7 +14,7 @@ public class Humain {
 		this.nom = nom;
 		this.boissonFavorite = boissonFavorite;
 		this.argent = argent;
-		this.parler("Bonjour, je m'appelle " + this.nom + " et j'aime boire du " + this.boissonFavorite + ".");
+		this.direBonjour();
 	}
 
 	public String getNom() {

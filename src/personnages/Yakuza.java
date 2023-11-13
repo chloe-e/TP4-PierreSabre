@@ -3,6 +3,7 @@ package personnages;
 public class Yakuza extends Humain {
 	private String clan;
 	private int reputation = 0;
+	
 	public Yakuza(String nom, String boissonFavorite, int argent, String clan) {
 		super(nom, boissonFavorite, argent);
 		this.clan = clan;
@@ -32,6 +33,6 @@ public class Yakuza extends Humain {
 		this.reputation += 1;
 
 		parler("Ce ronin pensait vraiment battre " + this.getNom()
-				+ " du clan de Warsong ? Je l'ai dépouillé de ses " + gain + "sous.");
+				+ " du clan de Warsong ? Je l'ai dépouillé de ses " + gain + " sous.");
 	}
 }

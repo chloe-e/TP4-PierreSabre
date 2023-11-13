@@ -12,6 +12,7 @@ public class Ronin extends Humain{
 		if (don>0) {
 			this.parler(beneficiaire.getNom() + ", prend ces " + don + " sous.");
 			beneficiaire.recevoirArgent(don);
+			this.perdreArgent(don);
 		}else {
 			parler("Désolé je ne peux rien te donner...");
 		}
@@ -21,15 +22,16 @@ public class Ronin extends Humain{
 		if(force >= adversaire.getReputation()) {
 			this.parler("Je t'ai retrouvé vermine, tu vas payer pour ce "
 					+ "que tu as fait à ce pauvre marchand!");
+			this.parler("Je t’ai eu petit yakusa!");
 			this.gagnerArgent(adversaire.perdre());
 			this.honneur+=1;
-			this.parler("Je t’ai eu petit yakusa!");
-			
 		}else {
 			if(honneur > 0) {
 				this.honneur-=1;
 			}
 			this.parler("J'ai perdu contre ce yakuza, mon honneur et ma bourse en ont pris un coup");
+			adversaire.gagner(this.getArgent());
+			this.perdreArgent(this.getArgent());
 		}
 	}
 }

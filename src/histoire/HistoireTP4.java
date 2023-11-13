@@ -8,22 +8,24 @@ public class HistoireTP4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Humain Prof = new Humain("Prof","kombucha",54);
-		Prof.acheter("une boisson", 12);
-		Prof.boire();
-		Prof.acheter("un jeu", 2);
-		Prof.acheter("un kimono", 50);
+		Humain prof = new Humain("Prof","kombucha",54);
+		prof.acheter("une boisson", 12);
+		prof.boire();
+		prof.acheter("un jeu", 2);
+		prof.acheter("un kimono", 50);
 		
-		Commercant Marco = new Commercant("Marco",100);
-		Marco.seFaireExtorquer();
-		Marco.recevoirArgent(15);
-		Marco.boire();
+		Commercant marco = new Commercant("Marco",100);
+		marco.seFaireExtorquer();
+		marco.recevoirArgent(15);
+		marco.boire();
 		
-		Yakuza Yaku = new Yakuza("Yaku le Noir", "whisky", 30, "Warsong");
-		Yaku.extorquer(Marco);
+		Yakuza yaku = new Yakuza("Yaku le Noir", "whisky", 30, "Warsong");
+		yaku.extorquer(marco);
 		
-		Ronin Roro = new Ronin("Roro", "shochu", 60);
-		Roro.donner(Marco);
+		Ronin roro = new Ronin("Roro", "shochu", 60);
+		roro.donner(marco);
+		
+		roro.provoquer(yaku);
 	}
 
 }

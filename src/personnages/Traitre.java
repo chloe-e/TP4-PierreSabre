@@ -1,5 +1,7 @@
 package personnages;
 
+import java.util.Random;
+
 public class Traitre extends Samourai {
 	private int nivTraitrise = 0;
 
@@ -9,31 +11,45 @@ public class Traitre extends Samourai {
 	@Override
 	public void direBonjour() {
 		super.direBonjour();
-		this.parler("Mon niveau de traîtrise est : " + this.nivTraitrise + ".");
+		this.parler("Mon niveau de traÃ®trise est : " + this.nivTraitrise + ".");
 	}
 	
 	public void ranconner(Commercant commercant) {
 		if (this.nivTraitrise < 3) {
-			int argentRenconner = commercant.getArgent()*2/10;
+			int argentRenconner = commercant.getArgent()*1/5;
 			commercant.perdreArgent(argentRenconner);
 			this.gagnerArgent(argentRenconner);
 			parler("Si tu veux ma protection contre les Yakuzas, il va falloir payer !"
-					+ "Donne-moi 2 sous ou gare à toi !");
+					+ "Donne-moi " + argentRenconner + " sous ou gare Ã  toi !");
 			commercant.parler("Tout de suite grand " + getNom() + ".");
+			this.nivTraitrise++;
 		}
 		else {
-			parler("Mince je ne peux plus rançonner personne sinon un samouraï risque de "
-					+ "me démasquer !");
+			parler("Mince je ne peux plus ranï¿½onner personne sinon un samouraï¿½ risque de "
+					+ "me dï¿½masquer !");
 		}
 	}
 	
-//	public void faireLeGentil() {
-//		if(this.nbConnaissance < 1) {
-//			parler("Je ne peux faire ami ami avec personne car je ne connais personne ! Snif.")
-//		}
-//		else {
-//			int
-//		}
-//			
-//	}
+	public void faireLeGentil() {
+		if(this.nbConnaissance < 1) {
+			parler("Je ne peux faire ami ami avec personne car je ne connais personne ! Snif.");
+		}
+		else {
+			int don = this.getArgent() * 1/20;
+			Random rand = new Random();
+			int amiIndex = rand.nextInt(this.nbConnaissance);
+			Humain ami = this.memoire[amiIndex];
+			
+			parler("Il faut absolument remonter ma cÃ´te de confiance. Je vais faire ami ami"
+					+ " avec " + ami.getNom());
+			parler("Bonjour l'ami ! Je voudrais vous aider en vous donnant " + don + " sous.");
+			ami.gagnerArgent(don);
+			ami.parler("Merci " + this.getNom() + ". Vous Ãªtes quelqu'un de bien.");
+			this.perdreArgent(don);
+			if (this.nivTraitrise > 0) {
+				this.nivTraitrise--;
+			}
+		}
+			
+	}
 }

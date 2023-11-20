@@ -7,7 +7,7 @@ public class Humain {
 	protected Humain[] memoire = new Humain[nbMaxConnaissances];
 	protected int nbConnaissance = 0;
 	private int addInd = 0;
-	private static final int nbMaxConnaissances = 3;
+	private static final int nbMaxConnaissances = 30;
 
 	public Humain(String nom, String boissonFavorite, int argent) {
 		super();
@@ -38,7 +38,7 @@ public class Humain {
 	}
 
 	public void direBonjour() {
-		this.parler("Bonjour ! Je m'appelle " + this.nom + " et j'aime boire du " + this.boissonFavorite);
+		this.parler("Bonjour ! Je m'appelle " + this.nom + " et j'aime boire du " + this.boissonFavorite + ".");
 	}
 	
 	private void repondre(Humain humain) {
@@ -53,10 +53,10 @@ public class Humain {
 	public void acheter(String bien, int prix) {
 		if (prix < this.argent) {
 			this.perdreArgent(prix);
-			this.parler("J'ai " + this.argent + " sous en poche, je vais pouvoir m'acheter " + bien + " à " + prix
+			this.parler("J'ai " + this.argent + " sous en poche, je vais pouvoir m'acheter " + bien + " ï¿½ " + prix
 					+ " sous.");
 		} else {
-			this.parler("Je n'ai plus que " + this.argent + " sous en poche, je ne peux pas m'acheter " + bien + " à "
+			this.parler("Je n'ai plus que " + this.argent + " sous en poche, je ne peux pas m'acheter " + bien + " ï¿½ "
 					+ prix + " sous.");
 		}
 	}

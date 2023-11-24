@@ -24,6 +24,14 @@ public class Humain {
 	public int getArgent() {
 		return argent;
 	}
+	
+	public void setAddInd(int addInd) {
+		this.addInd = addInd;
+	}
+
+	public int getAddInd() {
+		return addInd;
+	}
 
 	public void parler(String texte) {
 		System.out.println((this.nom) + " - " + texte);
@@ -42,8 +50,8 @@ public class Humain {
 	}
 	
 	private void repondre(Humain humain) {
-		direBonjour();
-		memoriser(humain);
+		this.direBonjour();
+		this.memoriser(humain);
 	}
 
 	public void boire() {
@@ -62,17 +70,17 @@ public class Humain {
 	}
 	
 	public void faireConnaissanceAvec(Humain humain) {
-		direBonjour();
+		this.direBonjour();
 		humain.repondre(this);
-		memoriser(humain);
+		this.memoriser(humain);
 	}
 	
-	private void memoriser(Humain humain) {
+	protected void memoriser(Humain humain) {
 		this.memoire[this.addInd] = humain;
-		if(this.nbConnaissance < nbMaxConnaissances) {
+		if(this.nbConnaissance < Humain.nbMaxConnaissances) {
 			this.nbConnaissance++;
 		}
-		this.addInd = (this.addInd + 1) % nbMaxConnaissances;
+		this.addInd = (this.addInd + 1) % Humain.nbMaxConnaissances;
 	}
 	
 	public void listerConnaissance() {

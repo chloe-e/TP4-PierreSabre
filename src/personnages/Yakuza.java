@@ -7,15 +7,16 @@ public class Yakuza extends Humain {
 	public Yakuza(String nom, String boissonFavorite, int argent, String clan) {
 		super(nom, boissonFavorite, argent);
 		this.clan = clan;
+		this.direClan();
 	}
 	public int getReputation() {
 		return this.reputation;
 	}
 	public void extorquer(Commercant victime) {
 		this.parler("Tiens, tiens, un faible marchand...");
-		this.parler(victime.getNom() + ", si tu tiens à la vie donne moi ta bourse !");
+		this.parler(victime.getNom() + ", si tu tiens Ã  la vie donne moi ta bourse !");
 		this.gagnerArgent(victime.getArgent());
-		this.parler("J'ai pris " + victime.seFaireExtorquer() + " sous à " + victime.getNom()
+		this.parler("J'ai pris " + victime.seFaireExtorquer() + " sous Ã  " + victime.getNom()
 		+ " ce qui me fait " + this.getArgent() + " sous dans la poche. Hihi !");
 	}
 	public int perdre() {
@@ -24,8 +25,8 @@ public class Yakuza extends Humain {
 		if (this.reputation>0) {
 			this.reputation -=1;
 		}
-		parler("J’ai perdu mon duel et mes " + sommePerdue + " sous, snif... "
-				+ "J'ai déshonoré le clan de " + this.clan);
+		parler("J'ai perdu mon duel et mes " + sommePerdue + " sous, snif... "
+				+ "J'ai dÃ©shonorÃ© le clan de " + this.clan);
 		return sommePerdue;
 	}
 	public void gagner(int gain) {
@@ -33,12 +34,10 @@ public class Yakuza extends Humain {
 		this.reputation += 1;
 
 		parler("Ce ronin pensait vraiment battre " + this.getNom()
-				+ " du clan de Warsong ? Je l'ai dépouillé de ses " + gain + " sous.");
+				+ " du clan de Warsong ? Je l'ai dÃ©pouillÃ© de ses " + gain + " sous.");
 	}
 	
-	@Override
-	public void direBonjour() {
-		super.direBonjour();
+	public void direClan() {
 		parler("Mon clan est celui de " + this.clan + ".");
 	}
 }

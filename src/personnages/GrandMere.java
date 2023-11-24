@@ -3,7 +3,7 @@ package personnages;
 import java.util.Random;
 
 public class GrandMere extends Humain{
-	private static final int nbMaxConnaissances = 5;
+	private static final int NBMAXCONNAISSANCES = 5;
 
 	public GrandMere(String nom, int argent) {
 		super(nom, "tisane" , argent);
@@ -13,10 +13,10 @@ public class GrandMere extends Humain{
 	protected void memoriser(Humain humain) {
 		int addInd = this.getAddInd();
 		
-		if(this.nbConnaissance < GrandMere.nbMaxConnaissances) {
+		if(this.nbConnaissance < GrandMere.NBMAXCONNAISSANCES) {
 			this.memoire[addInd] = humain;
 			this.nbConnaissance++;
-			this.setAddInd((addInd + 1) % GrandMere.nbMaxConnaissances);
+			this.setAddInd((addInd + 1) % GrandMere.NBMAXCONNAISSANCES);
 		}
 		else {
 			this.parler("Oh ma tête ! Je ne peux plus retenir"
@@ -27,8 +27,7 @@ public class GrandMere extends Humain{
 	private String humainHasard() {
 		TypeHumain[] types = TypeHumain.values();
 		Random rand = new Random();
-		String type = types[rand.nextInt(types.length)].toString();
-		return type;
+		return types[rand.nextInt(types.length)].toString();
 	}
 	
 	public void ragoter() {
@@ -57,6 +56,7 @@ public class GrandMere extends Humain{
 			this.nom = nom;
 		}
 		
+		@Override
 		public String toString() {
 			return nom;
 		}

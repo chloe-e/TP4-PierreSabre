@@ -4,10 +4,10 @@ public class Humain {
 	private String nom;
 	private String boissonFavorite;
 	private int argent;
-	protected Humain[] memoire = new Humain[nbMaxConnaissances];
+	protected Humain[] memoire = new Humain[NBMAXCONNAISANCES];
 	protected int nbConnaissance = 0;
 	private int addInd = 0;
-	private static final int nbMaxConnaissances = 30;
+	private static final int NBMAXCONNAISANCES = 30;
 
 	public Humain(String nom, String boissonFavorite, int argent) {
 		super();
@@ -77,10 +77,10 @@ public class Humain {
 	
 	protected void memoriser(Humain humain) {
 		this.memoire[this.addInd] = humain;
-		if(this.nbConnaissance < Humain.nbMaxConnaissances) {
+		if(this.nbConnaissance < Humain.NBMAXCONNAISANCES) {
 			this.nbConnaissance++;
 		}
-		this.addInd = (this.addInd + 1) % Humain.nbMaxConnaissances;
+		this.addInd = (this.addInd + 1) % Humain.NBMAXCONNAISANCES;
 	}
 	
 	public void listerConnaissance() {

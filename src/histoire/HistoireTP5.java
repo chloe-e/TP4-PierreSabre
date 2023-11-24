@@ -9,7 +9,6 @@ import personnages.Yakuza;
 public class HistoireTP5 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		Commercant marco = new Commercant("Marco", 20);
 		Commercant chonin = new Commercant("Chonin", 40);
